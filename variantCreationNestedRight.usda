@@ -1,0 +1,72 @@
+#usda 1.0
+
+def "a1"
+{
+    def "b1"
+    {
+        def "c1" (
+            variants = {
+                string meal = "lunch"
+            }
+            add variantSets = "meal"
+        )
+        {
+            variantSet "meal" = {
+                "breakfast" {
+                    def "breakfast" (
+                        variants = {
+                            string mealChoice = "granola"
+                        }
+                        add variantSets = "mealChoice"
+                    )
+                    {
+                        variantSet "mealChoice" = {
+                            "granola" {
+								 def "granola"
+		                        {
+		                            custom bool milk = 1
+		                        }
+                            }
+                            "muesli" {
+                             def "muesli"
+		                        {
+		                            custom bool milk = 1
+		                        }
+
+                            }
+                        }
+                    }
+
+                }
+                "lunch" {
+                    def "lunch" (
+                        variants = {
+                            string mealChoice = "pasta"
+                        }
+                        add variantSets = "mealChoice"
+                    )
+                    {
+                        variantSet "mealChoice" = {
+                            "pasta" {
+                             	def "pasta"
+		                        {
+		                            custom bool salt = 1
+		                        }
+
+                            }
+                            "sandwich" {
+                            	def "sandwich"
+		                        {
+		                            custom bool salt = 1
+		                        }
+
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,11 @@
+#usda 1.0
+(
+    subLayers = [@./level2.usda@]
+)
+ 
+# Removes reference to level4.usd
+over "MyPrim" (
+	delete references = [ @level4.usda@ ]
+)
+{
+}

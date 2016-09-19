@@ -1,0 +1,13 @@
+#usda 1.0
+(
+	doc = "XXX"
+    defaultPrim = "APrime"
+)
+def "APrime"
+{
+	def "A" (
+	references = [ @level4.usda@ ]
+)
+{
+}
+}

@@ -1,0 +1,23 @@
+#usda 1.0
+(
+	doc = "We try two ways of deleting the reference at A, but because it's one layer removed, we don't get the chance (I think this is the reason)"
+    defaultPrim = "APrimePrime"
+)
+def "APrimePrime" (
+)
+{
+	def "APrime" (
+	add references = [ @level3.usda@ ]
+	) 
+	{
+		over "A" (
+		references = [] #hoping this can delete the reference to level4.usda at A? No!
+		delete references = [ @level4.usda@ ] # #hoping this can delete the reference to level4.usda at A? No!
+		)
+		{
+			custom string doggiedoodoo = "xx"
+			 custom string testInheritance = "blah" #Shows that we CAN OVERRIDE simple attributes!
+		}
+	
+	}
+}
