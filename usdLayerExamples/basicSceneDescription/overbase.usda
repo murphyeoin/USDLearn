@@ -1,0 +1,24 @@
+#usda 1.0
+(
+	doc = "the base layer that gets subreferenced in somewhere else"
+)	
+
+
+def "AA" (
+)
+{
+	custom string attrDefinedOn = "overbase-AA"
+	def "BB" (
+	)
+	{
+		custom string attrDefinedOn = "overbase-BB"
+		def "CC" (
+		)
+		{	
+			custom string attrDefinedOn = "overbase-CC"
+			custom string oldAttribute = "overbase-CC"
+			
+		}
+	}
+}
+

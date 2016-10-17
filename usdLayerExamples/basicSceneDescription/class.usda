@@ -1,0 +1,31 @@
+#usda 1.0
+(
+	doc = "basic class"
+)	
+
+
+class "SimpleClass" (
+    doc = """An example of a simple class""" 
+)
+{
+	custom string attrDefinedOn = "class-SimpleClass"
+
+}
+
+
+def "MyPrim" (
+ 	inherits = </SimpleClass>
+ 	doc = "a prim which inherits from our class and does nothing"	
+) 
+{
+
+}
+
+def "MyPrimOverriding" (
+ 	inherits = </SimpleClass>
+ 	doc = "a prim which inherits from our class and overrides the attribute"	
+) 
+{
+custom string attrDefinedOn = "class-MyPrimOverriding"
+
+}

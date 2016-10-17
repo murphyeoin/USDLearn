@@ -1,0 +1,13 @@
+#usda 1.0
+(
+	doc = "show how we override a class attribute and it affects all inheritors"
+	subLayers = [@./class.usda@]
+)	
+
+
+over "SimpleClass" (
+)
+{
+	custom string attrDefinedOn = "classOverride-SimpleClass"
+	
+}

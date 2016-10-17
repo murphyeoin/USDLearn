@@ -1,0 +1,31 @@
+#usda 1.0
+(
+	doc = "overs"
+	subLayers = [@./overbase.usda@]
+)	
+
+
+over "AA" (
+)
+{
+	custom string attrDefinedOn = "over-AA"
+	over "BB" (
+	)
+	{
+		custom string attrDefinedOn = "over-BB"
+		over "CC" (
+		)
+		{
+			custom string attrDefinedOn = "over-CC"
+			custom string newAttribute = "overbase-CC"
+			
+		}
+	}
+}
+
+over "XXX" (
+	doc = "overs with no def disappear in the composed result"
+)
+{
+
+}
