@@ -1,11 +1,22 @@
 #usda 1.0
 (
-    subLayers = [@./level2.usda@]
+	doc = """
+        We have a hierarchy A/BB/CCC, where A defined in first.usda, BB in second.usda, CCC in third.usda. 
+    The Prim A is referenced via a sublayer, and the BB and CCC by prim reference. 
+    We try and delete the reference to third.usda at A/BB - this fails as it's two levels of referencing
+    """
+
+    subLayers = [@./first.usda@]
 )
  
-# Removes reference to level4.usd
-over "MyPrim" (
-	delete references = [ @level4.usda@ ]
-)
+
+over "A" ()
 {
+    over "BB" (
+    delete references = [ @third.usda@ ] #this doesnt works
+    )
+    {
+        custom string attrDefinedOn = "2levelref.BB"
+    }
 }
+

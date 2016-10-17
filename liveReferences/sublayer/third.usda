@@ -1,0 +1,14 @@
+#usda 1.0
+(
+	doc = "bottom level"
+	
+    defaultPrim = "BBB"
+)
+ def "BBB" 
+ {
+  	custom string attrDefinedOn = "third.BBB"
+ 	def "CCC"
+	{
+		custom string attrDefinedOn = "third.CCC" 
+	}
+}

@@ -1,7 +1,11 @@
 #usda 1.0
+(
+	doc = "top level"
+)	
 
-def "MyPrim" (
-	references = [ @level4.usda@]
+def "A" (
+	references = [ @second.usda@]
 )
 {
+	custom string attrDefinedOn = "first.A"
 }

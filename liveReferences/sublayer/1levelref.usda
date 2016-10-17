@@ -1,5 +1,19 @@
 #usda 1.0
 (
-    subLayers = [@./level3.usda@]
+    
+    doc = """
+    We have a hierarchy A/BB/CCC, where A defined in first.usda, BB in second.usda, CCC in third.usda. 
+    The Prim A is referenced via a sublayer, and the BB and CCC by prim reference. 
+    We try and delete the reference to level4.usd from A - this works as it's only one layer of referencing, i.e. it's in the current layer stack
+    """
+    
+    subLayers = [@./first.usda@]
 )
  
+
+over "A" (
+	delete references = [ @second.usda@ ]
+)
+{
+    custom string attrDefinedOn = "1levelref.A"
+}
