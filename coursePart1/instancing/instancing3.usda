@@ -1,8 +1,11 @@
 #usda 1.0
 (
 	 subLayers = [@./instancing1.usda@]
-	 doc = """ 
-	 This shows that when we switch instanceable off on TreeB via a sublayer, it gets it's .666 override back that was previously thrown away"""
+	 doc = 
+	 """ 
+	 This shows that when we switch instanceable off on TreeB via a sublayer, it gets it's .666 override back that was previously thrown away
+	 Could have done this with another level of inheritance also... in fact probably should have for clarity
+	 """
 )
 
 over "TreeB" (
