@@ -2,7 +2,10 @@
 (
 	doc = """
 	annotated version of USD Glossary example http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-Instancing
-	This shows what happens with 3-level inheritance when we set instanceable=true on level 3 - a new master is created
+	This shows what happens with 3-level inheritance where:
+	we add an override at level 2
+	we set instanceable=true on level 3
+	...a new master is created "Flattened_Master_2" with the override (which TreeC references), in addition to Flattened_Master_1 (which TreeA references)
 	"""
 )
  

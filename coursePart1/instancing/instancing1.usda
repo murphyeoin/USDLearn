@@ -1,7 +1,11 @@
 #usda 1.0
 (
-	doc= """annotated version of USD Glossary example http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-Instancing
-	Shows that making something an instance throws away any overs at the point where the instance is defined
+	doc= """
+	annotated version of USD Glossary example http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-Instancing
+	Shows that in a 2-level hierarchy, when we:
+	set an override at level 2
+	set instancing at level 2 
+	....We lose the .666 override, and a master called Flattened_Master_1 gets created that TreeA and TreeB reference
 	"""
 )
  
