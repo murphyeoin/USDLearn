@@ -1,0 +1,45 @@
+#usda 1.0
+(
+	doc = """
+	annotated version of USD Glossary example http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-Instancing
+	This shows what happens with 3-level inheritance when we set instanceable=true on level 3 - a new master is created
+	"""
+)
+ 
+class Xform "_class_Tree"
+{
+	def Mesh "Trunk"
+	{
+		color3f[] primvars:displayColor = [(.8, .8, .2)]
+	}
+	def Mesh "Leaves"
+	{
+		color3f[] primvars:displayColor = [(0, 1, 0)]
+	}
+}
+ 
+def "TreeA" (
+	inherits = [ </_class_Tree> ]
+	instanceable = true
+)
+{
+}
+ 
+class "TreeB" (
+	inherits = [ </_class_Tree> ]
+)
+{
+	over "Leaves" 
+	{
+		color3f[] primvars:displayColor = [(.666,.666,.666)]
+	}
+}
+
+def "TreeC" (
+	inherits = [ </TreeB> ]
+	instanceable = true
+	doc = "override is valid as instanceable = true set on derived class"
+)
+{
+	
+}
