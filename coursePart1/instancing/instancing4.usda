@@ -1,0 +1,53 @@
+#usda 1.0
+(
+	doc= """
+	annotated version of USD Glossary example http://graphics.pixar.com/usd/docs/USD-Glossary.html#USDGlossary-Instancing
+	Shows:
+	1. that "If instanceable = true on a prim, then the prim will become an instance of an implicit master when composed on a stage,  
+	if and only if the prim also contains one or more direct composition arcs".. There are no composition arcs in TreeA, so no instance gets created..
+	
+	2. TreeB inherits from _class_Tree, so an instance and master do get created as expected... But note that the master does not contain any attributes 
+	from _class_Tree. However the attributes from _class_Tree do exist on the instance (TreeB)... So as a rule, it looks like it's actually the child prims of the composition 
+	arc that gets referenced...
+	
+	3. TreeC - Referencing and Inheriting produce same instancing result 
+	
+	"""
+)
+ 
+ 
+class Xform "_class_Tree"
+{
+	color3f[] primvars:displayColorX = [(.7, .7, .7)]
+} 
+ 
+def "TreeA" (
+	instanceable = true
+)
+{
+	def Mesh "Trunk"
+	{
+		color3f[] primvars:displayColor = [(.8, .8, .2)]
+	}
+	def Mesh "Leaves"
+	{
+		color3f[] primvars:displayColor = [(0, 1, 0)]
+	}
+}
+ 
+def "TreeB" (
+	inherits = [ </_class_Tree> ]
+	instanceable = true
+)
+{
+	color3f[] primvars:displayColor = [(.8, .8, .2)]
+}
+ 
+def "TreeC" (
+	references = [ </_class_Tree> ]
+	instanceable = true
+)
+{
+	color3f[] primvars:displayColor = [(.8, .8, .2)]
+}
+ 
